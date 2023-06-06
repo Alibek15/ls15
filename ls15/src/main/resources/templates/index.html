@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <a href="/about">About us</a>
+    <hr>
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PRICE</th>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.price}"></td>
+            <!-- <%=item.getId()%>-->
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <form action="/additem" method="post">
+        <label>NAME: </label>
+        <input type="text" name="item-name">
+        <label>PRICE: </label>
+        <input type="number" name="price">
+        <button>ADD ITEM</button>
+    </form>
+
+</body>
+</html>
